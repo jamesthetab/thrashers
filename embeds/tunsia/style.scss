@@ -1,0 +1,117 @@
+// Default breakpoints from Frontend
+$mq-breakpoints: (
+    mobile:          320px,
+    mobileLandscape: 480px,
+    phablet:         660px,
+    tablet:          740px,
+    desktop:         980px,
+    leftCol:         1140px,
+    wide:            1300px
+);
+
+@import 'shared/_imports';
+
+$c-red: #d11416;
+$c-white: #fff;
+
+@include base(tunsia, darken($c-red, 10%));
+@include base(tunisia-silence, darken($c-red, 10%));
+
+.tunsia__wrapper {
+    height: 150px;
+    background: url("@@assetPath@@/bg.jpg") repeat;
+
+    @include mq(tablet) {
+        padding: 5px 0;
+    }
+}
+
+.tunsia__watch {
+    background-color: $c-white;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 35px;
+    margin: auto;
+    width: 40px;
+    height: 150px;
+
+    @include mq(tablet) {
+        height: 60px;
+        width: 100%;
+        left: auto;
+        top: 15px;
+    }
+}
+
+.tunsia__watch-face {
+    position: absolute;
+}
+
+.tunsia__watch-face--desktop {
+    position: absolute;
+    top: -50px;
+    left: 30px;
+    display: none;
+
+    @include mq(tablet) {
+        display: block;
+    }
+
+    @include mq(desktop) {
+        left: 100px;
+    }
+
+    @include mq(leftCol) {
+        left: 160px;
+    }
+}
+
+.tunsia__watch-face--mobile {
+    left: -25px;
+    top: 22px;
+    width: 100px;
+    height: auto;
+    display: block;
+
+    @include mq(tablet) {
+        display: none;
+    }
+}
+
+.tunsia__title {
+    position: absolute;
+    font-family: $f-serif-headline;
+    font-weight: 400;
+    font-size: 1.4rem;
+    line-height: 1;
+    color: $c-white;
+    max-width: 460px;
+
+    @include mq($until: mobileLandscape) {
+        font-size: 1rem;
+    }
+
+    @include mq($until: tablet) {
+        top: 0;
+        bottom: 0;
+        margin: auto;
+        display: table;
+        margin-left: 140px;
+        margin-right: 20px;
+    }
+
+    @include mq(tablet) {
+        color: $c-red;
+        top: 67px;
+        left: 240px;
+    }
+
+    @include mq(desktop) {
+        left: 340px;
+    }
+
+    @include mq(leftCol) {
+        left: 440px;
+    }
+}
